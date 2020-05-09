@@ -1,0 +1,25 @@
+canvas
+{
+	background: #000;
+	display: block;
+	margin: 0auto;
+	border:2px solid white; 
+
+}
+button
+{
+	width: 250px;
+	height: 40px;
+
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	min-height: 100vh;
+	background: #031321;
+	font-family: consolas;
+
+}

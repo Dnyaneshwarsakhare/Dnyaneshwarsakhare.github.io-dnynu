@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<title>Navigation</title>
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			text-decoration: none;
+			list-style: none;
+			box-sizing: border-box;
+		}
+		body{
+			font-family: montserrat;
+			
+			background-size: cover;
+
+		}
+		nav{
+			background: rgba(0,0,0,1);
+			position: fixed;
+			height: 80px;
+			width: 100%;
+		}
+		label.logo{
+			
+			font-size: 35px;
+			line-height: 80px;
+			padding: 0 100px;
+			font-weight: bold;
+			height: 100px;
+    		color: black;
+    		-webkit-animation-name: colorchange;  
+    		-webkit-animation-iteration-count: infinite;  
+    		-webkit-animation-duration: 2s; 
+
+		}
+		@-webkit-keyframes colorchange {  
+  			0% { color: #ee0979; }
+  			50% { color: #ff6a00; }
+  			75% { color:#ffff1c ; }
+  			100% { color: #ff00cc; }
+		}		
+		nav ul{
+			float: right;
+			margin-right: 20px;
+		}
+		nav ul li{
+			display: inline-block;
+			line-height: 80px;
+			margin: 0 5px;
+		}
+		nav ul li a{
+			background: linear-gradient(330deg, #ec2F4B 0%, #009FFF 25%, #ec2F4B 50%, #009FFF 75%, #ec2F4B 100%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-size: 17px;
+			text-transform: uppercase;
+			padding: 7px 13px;
+			border-radius: 3px;
+		}
+		a:hover{
+			color: #b5197c ;
+			font-weight: bold;
+	
+	box-shadow: 0 0 20px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+		}
+		.checkbtn{
+			font-size: 30px;
+			color: #009FFF;
+			float: right;
+			line-height: 80px;
+			margin-right:40px;
+			cursor: pointer;
+			display: none;
+		}
+		#check{
+			display: none;
+		}
+		@media (max-width: 952px)
+		{
+			label.logo{
+				font-size: 30px;
+				padding-left: 50px;
+			}
+			nav ul li a{
+				font-size: 16px;
+			}
+		}
+		@media (max-width: 858px)
+		{
+			.checkbtn{
+				display: block;
+
+			}
+			ul{
+				position: fixed;
+				width: 100%;
+				height: 100vh;
+				background: #000;
+				top: 80px;
+				left: -100%;
+				text-align: center;
+				transition: all 0.5s ;
+			}
+			nav ul li{
+				display: block;
+				margin: 50px 0;
+				line-height: 30px;
+			}
+			nav ul li a{
+				font-size: 20px;
+
+			}
+			a:hover
+			{
+				color: #b5197c ;
+			font-weight: bold;
+	
+	box-shadow: 0 0 20px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;	
+			}
+			#check:checked~ul{
+				left: 0;
+			}
+		}
+		#gh{
+			font-family: 'Bad Script',cursive;			
+			margin: 0;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-size: cover;
+			width: 100%;
+			background: #000;
+
+			height: calc(100vh - 80px);
+		}
+		
+		.spinner-wrapper{
+    width: 100%;
+    height: 100%;
+    background:rgba(255,255,255,0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    position: relative;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+}
+
+.spinner::before,
+.spinner:after{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+}
+
+.spinner:before {
+    width: 100%;
+    height: 100%;
+    background-image:linear-gradient(90deg, #ff00cc 0%,#333399 100% );
+    animation: spin .5s infinite linear;
+}
+.spinner:after {
+    width: 90%;
+    height: 90%;
+    background-color: #151515;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+/*Simulate page content*/
+.main-content{
+    width: 100%;
+    height: 100vh;
+    background: url("https://source.unsplash.com/random/4000x4000") center no-repeat;
+    background-size: cover;
+}
+@import url("https://fonts.googleapis.com/css?family=Bad+Script");
+
+h1{
+	background: rgba(255,255,255,0);
+	font-family: 'Bad Script',cursive;
+	color: #111;
+	position: absolute;
+	font-size: 10em;
+}
+h1 span{
+	display: table-cell;
+	margin: 0;
+	padding: 0;
+	animation: animate 2s linear infinite;
+}
+h1 span:nth-child(1)
+{
+	animation-delay: 0s;
+}
+h1 span:nth-child(2)
+{
+	animation-delay: 0.25s;
+}
+h1 span:nth-child(3)
+{
+	animation-delay: 0.5s;
+}
+h1 span:nth-child(4)
+{
+	animation-delay: 0.75s;
+}
+h1 span:nth-child(5)
+{
+	animation-delay: 1s;
+}
+h1 span:nth-child(6)
+{
+	animation-delay: 1.25s;
+}
+h1 span:nth-child(7)
+{
+	animation-delay: 1.5s;
+}
+@keyframes animate
+{
+	0%,100%{
+		color: #fff;
+		filter: blur(2px);
+		text-shadow: 0 0 10px #00b3ff,
+					0 0 20px #00b3ff,
+					0 0 40px #00b3ff,
+					0 0 80px #00b3ff,
+					0 0 120px #00b3ff,
+					0 0 200px #00b3ff,
+					0 0 300px #00b3ff;
+	}
+	5%,95%{
+		color: #111;
+		filter: blur(0px);
+		text-shadow: none;
+	}
+}
+.container{
+	width: 100%;
+	height: 150px;
+	background: #000;
+	margin: 0px auto;
+	display: flex;
+	justify-content: center;
+}
+.box{
+	width: 200px;
+	height: 75px;
+	text-align: center;
+	justify-content: center;
+	padding-top: 20px;
+	background: green;
+	border-radius: 20px;
+	margin: 0px 10px;
+	transition: 1s;
+}
+.box:hover{
+	transform: scale(1.3);
+	background: #ff800a;
+	text-align: center;
+	padding-top: 20px;
+	border-radius: 175px;
+	box-shadow: 2px 2px 2px 2px;
+}
+.container1{
+	width: 100%;
+	height: 300px;
+	margin: 0px auto;
+	display: flex;
+	justify-content: center;
+	background: #000;
+}
+.box1{
+	width: 300px;
+	height: 200px;
+	justify-content: center;
+	margin: 0px 20px;
+	text-align: justify;
+	background: orange;
+	border-radius: 10px;
+	box-shadow: 2px 2px blue;
+	padding: 10px 10px;
+}
+.box1:hover{
+	transform:scale(1.3);
+	transition: 1s;
+}
+.box2{
+	width: 300px;
+	height: 200px;
+	justify-content: center;
+	margin: 0px 10px;
+	text-align: justify;
+	background: orange;
+	border-radius: 10px;
+	box-shadow: 2px 2px blue;
+	padding: 10px 10px;
+}
+.box2:hover{
+	transform:scale(1.3);
+	transition: 1s;
+}
+.maincontainer{
+	width: 100%;
+	height: 500px;
+	margin: 0px auto;
+	color: white;	
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	background: #000;
+}
+.container2{
+	width: 100%;
+	height: 500px;
+	margin: 0px auto;
+	padding-left: 200px;
+	justify-content: center;
+	align-items: center;
+	display: block;
+	background: #000;
+}
+.red{
+	width: 200px;
+	height: 200px;
+	border-radius: 100px;
+	background-color: #FF531A;
+	color: black;
+	
+	padding: 75px 50px;
+}
+.red:hover{
+	transform: scale(1.3);
+	transition: 1s;
+}
+.blue{
+	background-color: #6A1AFF;
+	position: relative;
+	height:120px;
+	margin-top: -50px;
+	padding: 70px 60px;
+	margin-left: 80px;
+	width: 200px;
+	color: black;
+	height: 200px;
+	border-radius: 100px;
+}	
+.blue:hover{
+	transform: scale(1.3);
+transition: 1s;
+}
+.green{
+	background-color: #1AFF40;
+	position: relative;
+	height:1px;
+	margin-top: -350px;
+	margin-left: 150px;
+	width: 200px;
+	color: black;
+	text-align: center;
+	padding: 60px 40px;
+	height: 200px;
+	border-radius: 100px;
+}	
+.green:hover{
+	transform: scale(1.3);
+	transition: 1s;
+}
+
+.Music{
+	display: block;
+	width: 100%;
+	height: 200px;
+	background: #0ff00f;
+
+}
+.Video{
+	display: block;
+	width: 100%;
+	height: 500px;
+
+	background: #00ffff;
+}
+.gamecontainer{
+	background: #000;
+	color: white;
+	width: 100%;
+	height: 300px;
+}
+.games a{
+		position: relative;
+		display: inline-block;
+		padding: 25px 30px;
+		margin: 40px 20px;
+		color: #03e9f4;
+		font-size: 24px;
+		text-decoration: none;
+		text-transform: uppercase;
+		overflow: hidden;
+		transition: 0.5s;
+		letter-spacing: 4px;
+		-webkit-box-reflect:below 1px linear-gradient(transparent,#0005);
+	}
+.games a:nth-child(1)
+	{
+		filter: hue-rotate(290deg);
+	}
+	.games a:nth-child(3)
+	{
+		filter: hue-rotate(110deg);
+	}
+	.games a:hover{
+		background: #03e9f4;
+		color: #e50001;
+		border-radius: 20px;
+		box-shadow: 0 0 5px #03e9f4,
+					0 0 25px #03e9f4,
+					0 0 50px #03e9f4,
+					0 0 200px #03e9f4;
+	}
+	.games a span{
+		position: absolute;
+		display: block;
+	}
+	.games a span:nth-child(1)
+	{
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 2px;
+		background: linear-gradient(90deg,transparent,#03e9f4);
+		animation: animated1 1s linear infinite;
+	}
+	@keyframes animated1
+	{
+		0%{
+			left: -100%;
+		}
+		50%,100%{
+			left:100%;
+		}
+	}
+	.games a span:nth-child(2)
+	{
+		top: -100%;
+		right: 0;
+		width: 2px;
+		height: 100%;
+		background: linear-gradient(180deg,transparent,#03e9f4);
+		animation: animated2 1s linear infinite;
+		animation-delay: 0.25s;
+	}
+	@keyframes animated2
+	{
+		0%{
+			top: -100%;
+		}
+		50%,100%{
+			top: 100%;
+		}
+	}
+	.games a span:nth-child(3)
+	{
+		bottom: 0;
+		right: -100%;
+		width: 100%;
+		height: 2px;
+		background: linear-gradient(270deg,transparent,#03e9f4);
+		animation: animated3 1s linear infinite;
+		animation-delay: 0.5s;
+	}
+	 @keyframes animated3
+	{
+		0%{
+			right: -100%;
+		}
+		50%,100%{
+			right:100%;
+		}
+	}
+	.games a span:nth-child(4)
+	{
+		bottom: -100%;
+		left: 0;
+		width: 2px;
+		height: 100%;
+		background: linear-gradient(360deg,transparent,#03e9f4);
+		animation: animated4 1s linear infinite;
+		animation-delay: 0.75s;
+	}
+	 @keyframes animated4
+	{
+		0%{
+			bottom: -100%;
+		}
+		50%,100%{
+			bottom:100%;
+		}
+	}
+
+.Contactcontainer{
+	width: 100%;
+	height:200px;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: white;
+	display: flex;
+	background: #000;
+}
+
+.contact ul{
+		display: flex;
+	}
+	.contact ul li{
+		position: relative;
+		display: block;
+		color:#666;
+		font-size: 30px;
+		height: 60px;
+		width: 60px;
+		background: #171515;
+		line-height: 60px;
+		border-radius: 50%;
+		margin: 0 15px;
+		cursor: pointer;
+		transition: 0.5s;
+	}
+	.contact ul li:before{
+		position: absolute;
+		content: '';
+		top: 0;
+		left: 0;
+		/*background: #d35400;*/
+		height: 100%;
+		width: 100%;
+		border-radius: 50%;
+		z-index: -1;
+		transform: scale(0.9);
+		transition: 0.5s;
+	}
+	.contact ul li:nth-child(1):before{
+		background: #4267B2;
+	}
+	.contact ul li:nth-child(2):before{
+		background: #1DA1F2;
+	}
+	.contact ul li:nth-child(3):before{
+		background: #E1306C;
+	}
+	.contact ul li:nth-child(4):before{
+		background: #2867B2;
+	}
+	.contact ul li:nth-child(5):before{
+		background: #ff0000;
+	}
+	.contact ul li:nth-child(7):before{
+		background: #ff0000;
+	}
+	.contact ul li:hover:before{
+		filter: blur(3px);
+		transform: scale(1.2);
+		/*box-shadow: 0 0 35px #d35400;*/
+	}
+	.contact ul li:nth-child(1):hover:before{
+		box-shadow: 0 0 35px #4267B2;
+	}
+	.contact ul li:nth-child(2):hover:before{
+		box-shadow: 0 0 35px #1DA1F2;
+	}
+	.contact ul li:nth-child(3):hover:before{
+		box-shadow: 0 0 35px #E1306C;
+	}
+	.contact ul li:nth-child(4):hover:before{
+		box-shadow: 0 0 35px #2867B2;
+	}
+	.contact ul li:nth-child(5):hover:before{
+		box-shadow: 0 0 35px #ff0000;
+	}
+	.contact ul li:nth-child(7):hover:before{
+		box-shadow: 0 0 35px #ff0000;
+	}
+	.contact ul li:hover{
+		color: #ffa502;
+		box-shadow: 0 0 35px #d35400;
+		text-shadow: 0 0 15px #d35400;
+	}
+	.contact ul li:nth-child(1):hover{
+		color: #456cba;
+		box-shadow: 0 0 35px #4267B2;
+		text-shadow: 0 0 15px #4267B2;
+	}
+	.contact ul li:nth-child(2):hover{
+		color: #26a4f2;
+		box-shadow: 0 0 35px #1DA1F2;
+		text-shadow: 0 0 15px #1DA1F2;
+	}
+	.contact ul li:nth-child(3):hover{
+		color: #e23670;
+		box-shadow: 0 0 35px #E1306C;
+		text-shadow: 0 0 15px #E1306C;
+	}
+	.contact ul li:nth-child(4):hover{
+		color: #2a6cbb;
+		box-shadow: 0 0 35px #2867B2;
+		text-shadow: 0 0 15px #2867B2;
+	}
+	.contact ul li:nth-child(5):hover{
+		color: #ff1a1a;
+		box-shadow: 0 0 35px #ff0000;
+		text-shadow: 0 0 15px #ff0000;
+	}
+	.contact ul li:nth-child(7):hover{
+		color: #ff1a1a;
+		box-shadow: 0 0 35px #ff0000;
+		text-shadow: 0 0 15px #ff0000;
+	}
+	.viewcount{
+		background: #000;
+		color: white;
+		height: 50px;
+		width: 100%;
+	}
+	.view{
+		height: 20px;
+		width: 50px;
+		border-radius:10px; 
+	}
+	.footer{
+		height: 50px;
+		width: 100%;
+		background: #000;
+		color: white;
+	}
+
+	</style>
+
+</head>
+<body>
+	<nav>
+		<input type="checkbox" id="check">
+		<label for="check" class="checkbtn">
+		<i class="fas fa-bars"></i>
+		</label>
+		<label class="logo">Profile</label>
+		<ul>
+			<li><a class="active" href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Qualifications</a></li>
+			<li><a href="#">Music</a></li>
+			<li><a href="#">Videos</a></li>
+			<li><a href="Games/Snake.html">Games</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</nav>
+	
+		<div id="gh">
+			<h1 id="welcome">
+			<span>W</span>
+			<span>E</span>
+			<span>L</span>
+			<span>C</span>
+			<span>O</span>
+			<span>M</span>
+			<span>E</span>
+			</h1>
+		</div>	
+	<div class="container">
+		<div class="box"><h2>Dnyaneshwar</h2></div>
+		<div class="box"><h2>Subhash</h2></div>
+		<div class="box"><h2>Sakhare</h2></div>
+	</div>
+	<div class="container1" align="center">
+		<div class="box1">
+			<p><h3>
+			My name is Dnyaneshwar Subhash Sakhare and my portfolio is a representation of all that I've learned and accomplished as a Computer science and engineering student.
+			</h3></p>
+		</div>
+		<div class="box2">
+			<p><h3>
+				I love making games using unity 3d game engine. I am looking for more opportunities to work in gaming industries. I also have some interest in website design. I know some programming languages also.
+			</h3></p>
+		</div>
+	</div>	
+	<div class="maincontainer">
+	<div class="container2">
+		<h2>Scripting Knowledge</h2>
+		<div class="red"><h2>HTML</h2></div>
+		<div class="blue"><h2>CSS</h2></div>
+		<div class="green"><h2>JAVASCRIPT</h2></div>
+	</div>
+	<div class="container2">
+		<h2>Programming Knowledge</h2>
+		<div class="red"><h2>JAVA</h2></div>
+		<div class="blue"><h2>C, C++</h2></div>
+		<div class="green"><h2>C#</h2></div>
+	</div>
+	</div>
+
+	<div class="Music" align="center"><h2>Astronomia( Coffin Dance )</h2>
+		<audio controls>
+  			<source src="astronomia.mp3" type="audio/mpeg">
+  			
+				Your browser does not support the audio element.
+		</audio><h2>Cradles</h2>
+		<audio controls><source src="cradles.mp3" type="audio/mpeg"></audio>
+	</div>
+
+	<div class="Video" align="center"><h2>Old vs NEW bollywood</h2>
+		
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/jabs2RM7Tqo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		
+	</div>
+	<div class="gamecontainer" align="center">
+	<div class="games" align="center"><h2>My Browser Games</h2>
+	<a href="Games/Breakout.html">
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	Play Now
+	</a>
+
+	<a href="Games/Snake.html">
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	Play Now
+	</a>
+
+	</div>
+	</div>
+	<div class="Contactcontainer" align="center">
+		<div class="contact" align="center"><h2>Contact us</h2><br>
+			<ul>
+			<li><a href="mailto:[sdnyanu22@gmail.com]" target="_blanks" style="color:#4267B2;"><i class="fab fa-google"></i></a></li>
+			<li><a href="https://twitter.com/Dnyanes84884952" target="_blanks" style="color:#1DA1F2;"><i class="fab fa-twitter"></i></a></li>
+			<li><a href="https://www.instagram.com/dnyaneshwar_s22/" target="_blanks" style="color:#E1306C;"><i class="fab fa-instagram"></i></a></li>
+			<li><a href="https://in.linkedin.com/in/dnyaneshwar-sakhare-5ab96016b" target="_blanks" style="color:#2867B2;"><i class="fab fa-linkedin-in"></i></a></li>
+			<li><a href="https://www.youtube.com/channel/UCP3Ie0wyprVGYTGt9vy8n-A" target="_blanks" style="color: red;"><i class="fab fa-youtube"></i></a></li>
+			<li><a href="https://github.com/Dnyaneshwarsakhare/" target="_blanks" style="color:#d35400;"><i class="fab fa-github"></i></a></li>
+			<li><a href="https://www.quora.com/profile/Dnyaneshwar-Sakhare-2" target="_blanks" style="color:red;"><i class="fab fa-quora"></i></a></li>
+		</ul>
+		</div>
+		
+	</div>
+	<div class="viewcount" align="center">
+		<div class="view" align="center"> 
+			<!-- hitwebcounter Code START -->
+			<a href="https://www.hitwebcounter.com" target="_blank">
+			<img src="https://hitwebcounter.com/counter/counter.php?page=7291623&style=0009&nbdigits=4&type=page&initCount=0" title="views Counter" Alt="counter free"   border="0" >
+			</a>  
+		</div>
+	</div>
+	<div class="spinner-wrapper">
+		<div class="spinner"></div>
+	</div>
+	<div class="footer" align="center">
+		<footer>
+        <small>&copy; Copyright 2020 @ Dnyaneshwar Sakhare All Rights Reserved</small>
+		</footer>
+	</div>
+	<script>
+    let spinnerWrapper = document.querySelector('.spinner-wrapper');
+
+    window.addEventListener('load', function () {
+        // spinnerWrapper.style.display = 'none';
+        spinnerWrapper.parentElement.removeChild(spinnerWrapper);
+    });
+</script>
+</body>
+</html>
+
